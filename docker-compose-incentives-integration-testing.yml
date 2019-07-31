@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  tomcat:
+#    image: tomcat:9.0.8-jre8
+#    image: tomcat:8.5.40-jre8
+#    image: tomcat:7.0.94-jre7
+    image: howarddeiner/incentives-tomcat
+    container_name: tomcat
+    networks:
+      - backend
+    ports:
+      - "8080:8080"
+#    volumes:
+#      - ./logs_tomcat:/usr/local/tomcat/logs
+    restart: always
+networks:
+  backend:
+    driver: bridge
